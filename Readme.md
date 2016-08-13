@@ -17,6 +17,7 @@ Features include:
 - Intelligent UI handling. The guide will automatically move along as the user performs actions in your app. This makes guides much easier to follow, as your app's user experience isn't fragmented by having to click "Next Step" after every action.
 - Easy integration. Using KNAppGuide is easy. Import the framework, build a guide in code or in a file (or a combination of the two). If you have your guide in a file, you can load it and begin its presentation in three lines of code.
 - Extensible. If KNAppGuide doesn't do quite what you need, it's fully extensible out of the box - have it interact with your custom controls or present your guide content with your own custom guide UI. The guide loader is smart enough to instantiate any custom classes and set custom values without any modification to it at all.
+
 Planned features include:
 - A program to author help content so you don't have to manually make plists.
 - ... that's it, so far. Submit feature requests please!
@@ -57,7 +58,7 @@ Included in the framework is KNToolbarExtensions, an NSToolbar extension that pr
 
 Take a look at the sample application for an example of how to create and present a simple guide. The headers for each class contain further documentation on how to use the framework.
 
-# If you've any questions, please contact me using the details below:
+If you've any questions, please contact me using the details below:
 
 Twitter: iKenndac
 Email: daniel@kennettnet.co.uk
