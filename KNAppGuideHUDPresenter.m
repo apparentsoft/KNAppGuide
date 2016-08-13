@@ -115,6 +115,14 @@
 }
 
 
+-(void)windowDidLoad
+{
+	[super windowDidLoad];
+	
+	[self.window setAppearance: [NSAppearance appearanceNamed: NSAppearanceNameVibrantDark]];
+}
+
+
 - (BOOL)windowShouldClose:(id)window {
 	
 	// If we return yes, the window gets closed immediately and we 

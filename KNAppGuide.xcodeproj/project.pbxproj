@@ -46,13 +46,13 @@
 		508967990FB9CE9A00439892 /* KNAppGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508967240FB9CD0F00439892 /* KNAppGuide.framework */; };
 		508B84550FB9C1D800BD4F48 /* Sample Guide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 508B84540FB9C1D800BD4F48 /* Sample Guide.plist */; };
 		509AC34B0FBD61DE0017FC4F /* KNToolBarExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 501225B30FBC1C0B001C50D3 /* KNToolBarExtensions.m */; };
-		509EAB3B0FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 509EAB370FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.xib */; };
 		509EAB3C0FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.strings in Resources */ = {isa = PBXBuildFile; fileRef = 509EAB390FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.strings */; };
 		50D633560FC1ACB1000C83AD /* KNAppGuideResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D633540FC1ACB1000C83AD /* KNAppGuideResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50D633C50FC1AEE6000C83AD /* KNAppGuideDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D633C30FC1AEE6000C83AD /* KNAppGuideDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50D634EB0FC1C2B1000C83AD /* READ ME.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 50D634EA0FC1C2B1000C83AD /* READ ME.rtfd */; };
 		50D635020FC1C578000C83AD /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 50D635010FC1C578000C83AD /* License.txt */; };
 		50E27D4D0FBB2EA800A0E3FA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */; };
+		55D9A25C1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9A25B1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -140,7 +140,6 @@
 		508B83C10FB9B9AE00BD4F48 /* KNAppGuideBasicKVCResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAppGuideBasicKVCResolver.h; sourceTree = "<group>"; };
 		508B83C20FB9B9AE00BD4F48 /* KNAppGuideBasicKVCResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNAppGuideBasicKVCResolver.m; sourceTree = "<group>"; };
 		508B84540FB9C1D800BD4F48 /* Sample Guide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Sample Guide.plist"; sourceTree = "<group>"; };
-		509EAB380FBDBF3200FE82D8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/KNAppGuideHUDPresenter.xib; sourceTree = "<group>"; };
 		509EAB3A0FBDBF3200FE82D8 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/KNAppGuideHUDPresenter.strings; sourceTree = "<group>"; };
 		50D041D00FB47F13005867A1 /* KNAppGuideEnterTextAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAppGuideEnterTextAction.h; sourceTree = "<group>"; };
 		50D041D10FB47F13005867A1 /* KNAppGuideEnterTextAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNAppGuideEnterTextAction.m; sourceTree = "<group>"; };
@@ -149,6 +148,7 @@
 		50D634EA0FC1C2B1000C83AD /* READ ME.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "READ ME.rtfd"; sourceTree = "<group>"; };
 		50D635010FC1C578000C83AD /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
+		55D9A25B1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KNAppGuideHUDPresenter.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* KNAppGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KNAppGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -338,7 +338,7 @@
 			children = (
 				506626800FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.h */,
 				506626810FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.m */,
-				509EAB370FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.xib */,
+				55D9A25B1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib */,
 				509EAB390FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.strings */,
 			);
 			name = "HUD Presenter";
@@ -469,7 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				509EAB3B0FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.xib in Resources */,
+				55D9A25C1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib in Resources */,
 				509EAB3C0FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -546,14 +546,6 @@
 				1DDD58150DA1D0A300B32029 /* English */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		509EAB370FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				509EAB380FBDBF3200FE82D8 /* English */,
-			);
-			name = KNAppGuideHUDPresenter.xib;
 			sourceTree = "<group>";
 		};
 		509EAB390FBDBF3200FE82D8 /* KNAppGuideHUDPresenter.strings */ = {
@@ -678,6 +670,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx;
@@ -693,6 +686,7 @@
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx;
