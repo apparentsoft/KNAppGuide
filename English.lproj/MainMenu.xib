@@ -749,7 +749,7 @@
         <customObject id="420" customClass="NSFontManager"/>
         <customObject id="450" customClass="MainWindowController">
             <connections>
-                <outlet property="aMenuItem" destination="557" id="560"/>
+                <outlet property="aMenuItem" destination="543" id="mCx-vn-ByH"/>
                 <outlet property="datePicker" destination="517" id="520"/>
                 <outlet property="nameField" destination="511" id="519"/>
                 <outlet property="saveButton" destination="513" id="521"/>
