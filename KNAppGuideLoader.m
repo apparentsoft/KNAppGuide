@@ -56,7 +56,10 @@
 		[guideStepsArray addObject: stepGuideDict];
 	}
 	[guideDict setObject: guideStepsArray forKey: @"steps"];
-
+	if( guideDict[objectClassNameKey] == nil ) {	// In HTML, the guide class name is optional at the root.
+		[guideDict setObject: @"KNAppGuide" forKey: objectClassNameKey];
+	}
+	
 	NSLog(@"%@", guideDict);
 	
 	KNAppGuideLoader *loader = [[self alloc] init];	
