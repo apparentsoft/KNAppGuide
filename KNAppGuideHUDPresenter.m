@@ -180,6 +180,7 @@
     stepExplanationWebViewConfiguration.userContentController = controller;
 	
 	stepExplanationWebView = [[KNAppGuideResizingWebView alloc] initWithFrame: NSZeroRect configuration: stepExplanationWebViewConfiguration];
+	[stepExplanationWebView setValue: @YES forKey: @"drawsTransparentBackground"];	// +++ Not sure this is MAS-safe.
 	[stepExplanationWebView setContentHuggingPriority: 1000 forOrientation: NSLayoutConstraintOrientationVertical];
 	[stepExplanationWebViewContainer addSubview: stepExplanationWebView];
 	stepExplanationWebView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -341,7 +342,6 @@
 	NSFont *theFont = [NSFont systemFontOfSize: [NSFont systemFontSize]];
 	NSString *htmlString = [NSString stringWithFormat: @"<html><head><style>body { margin: 0pt; background-color: transparent; } h1 { font-family: '%1$@'; font-style: bold; font-size: %2$d; color: white; } section { font-family: '%1$@'; font-size: %2$d; color: white; }</style>%5$@</head><body><h1>%4$@</h1>%3$@</body></html>", theFont.familyName, (int)theFont.pointSize, self.taggedStepExplanation, self.guide.title, self.guide.headHTML];
 	[stepExplanationWebView loadHTMLString: htmlString baseURL: self.guide.baseDocumentURL];
-	[stepExplanationWebView setValue: @YES forKey: @"drawsTransparentBackground"];
 	
 	if ([[self delegate] respondsToSelector:@selector(presenter:didMoveToStep:inGuide:)]) {
 		[[self delegate] presenter:self didMoveToStep:step inGuide:[self guide]];
