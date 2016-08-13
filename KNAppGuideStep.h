@@ -30,8 +30,10 @@ Just like the KNAppGuide class and protocol pair, you can use custom classes for
 
 @property BOOL completionRequiredForNextStep;
 @property (copy, nonatomic, readwrite) NSString *explanation;
+@property (copy, nonatomic, readwrite) NSString *explanationFormat;
 @property (retain, nonatomic, readwrite) id <KNAppGuideAction> action;
 @property (retain, nonatomic, readwrite) id highlightedItem;
+@property (assign,nonatomic) BOOL explanationIsHTML;
 
 -(void)stepWillBeShown;
 -(AppGuideActionResult)performAction;
@@ -42,6 +44,7 @@ Just like the KNAppGuide class and protocol pair, you can use custom classes for
 @interface KNAppGuideStep : NSObject <KNAppGuideStep> {
 
 	BOOL completionRequiredForNextStep;
+	BOOL explanationIsHTML;
 	NSString *explanation;
 	id <KNAppGuideAction> action;
 	id highlightedItem;

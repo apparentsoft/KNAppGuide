@@ -51,7 +51,8 @@
 	for (NSXMLElement* currGuideStep in guideStepElems) {
 		setterNodes = [currGuideStep nodesForXPath: @"appguide:set" error:&err];
 		NSMutableDictionary *stepGuideDict = [NSMutableDictionary dictionary];
-		[stepGuideDict setObject: currGuideStep.stringValue forKey: @"explanation"];
+		[stepGuideDict setObject: currGuideStep.description forKey: @"explanation"];
+		[stepGuideDict setObject: @"html" forKey: @"explanationFormat"];
 		[self addTagsFromElements: setterNodes toGuideDictionary: stepGuideDict];
 		[guideStepsArray addObject: stepGuideDict];
 	}

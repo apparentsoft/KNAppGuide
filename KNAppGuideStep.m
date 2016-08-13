@@ -24,6 +24,8 @@
 
 @synthesize completionRequiredForNextStep;
 @synthesize explanation;
+@synthesize explanationIsHTML;
+@dynamic explanationFormat;
 @synthesize action;
 @synthesize highlightedItem;
 
@@ -44,5 +46,15 @@
 }
 
 
+-(void) setExplanationFormat:(NSString *)explanationFormat
+{
+	explanationIsHTML = [explanationFormat caseInsensitiveCompare: @"html"] == NSOrderedSame;
+}
+
+
+-(NSString*) explanationFormat
+{
+	return explanationIsHTML ? @"html" : @"text";
+}
 
 @end
