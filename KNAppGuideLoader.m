@@ -61,7 +61,7 @@
 		[guideDict setObject: @"KNAppGuide" forKey: objectClassNameKey];
 	}
 	
-	NSLog(@"%@", guideDict);
+	//NSLog(@"%@", guideDict);
 	
 	KNAppGuideLoader *loader = [[self alloc] init];	
 	[loader setResolver:aResolver];

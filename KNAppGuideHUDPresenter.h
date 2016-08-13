@@ -10,16 +10,8 @@
 #import <KNAppGuide/KNAppGuidePresenter.h>
 #import <KNAppGuide/KNAppGuideDelegate.h>
 
-//@protocol KNAppGuideDelegate;
-@class KNAppGuideClassicHighlight;
 
-@interface KNAppGuideHUDPresenter : NSWindowController <KNAppGuidePresenter, KNAppGuideDelegate> {
-	id <KNAppGuide> guide;
-	id <KNAppGuidePresenterDelegate> delegate;
-	KNAppGuideClassicHighlight *currentControlHighlight;
-	IBOutlet NSTextField *stepExplanationTextField;
-	IBOutlet NSButton *nextButton;
-}
+@interface KNAppGuideHUDPresenter : NSWindowController <KNAppGuidePresenter, KNAppGuideDelegate>
 
 -(IBAction)clickNext:(id)sender;
 -(IBAction)clickPrevious:(id)sender;

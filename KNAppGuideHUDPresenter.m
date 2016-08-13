@@ -12,12 +12,42 @@
 #import "NSWindow+Fade.h"
 #import "KNAppGuideDelegate.h"
 #import "KNAppGuide.h"
+#import <WebKit/WebKit.h>
 
-@interface KNAppGuideHUDPresenter (Private)
 
--(CGFloat)heightOfExplanationString:(NSString *)string inWidth:(CGFloat)width;
+
+@interface KNAppGuideResizingWebView : WKWebView
+
+@property (nonatomic, readwrite) NSSize intrinsicContentSize;
 
 @end
+
+
+@implementation KNAppGuideResizingWebView
+
+-(void)	setIntrinsicContentSize:(NSSize)intrinsicContentSize
+{
+	_intrinsicContentSize = intrinsicContentSize;
+	[self invalidateIntrinsicContentSize];
+}
+
+@end
+
+
+@interface KNAppGuideHUDPresenter () <WKScriptMessageHandler>
+ {
+	id <KNAppGuide> guide;
+	id <KNAppGuidePresenterDelegate> delegate;
+	KNAppGuideClassicHighlight *currentControlHighlight;
+	IBOutlet NSTextField *stepExplanationTextField;
+	IBOutlet NSButton *nextButton;
+	IBOutlet NSView *stepExplanationWebViewContainer;
+	KNAppGuideResizingWebView *stepExplanationWebView;	// In 10.11 and earlier, WKWebView can not be created using initWithCoder (i.e. from a XIB).
+	WKWebViewConfiguration *stepExplanationWebViewConfiguration;
+}
+
+@end
+
 
 @implementation KNAppGuideHUDPresenter
 
@@ -51,6 +81,9 @@
 }
 
 -(void)dealloc {
+	[stepExplanationWebView removeFromSuperview];
+	[stepExplanationWebView release];
+	stepExplanationWebView = nil;
 	
 	[guide release];
 	guide = nil;
@@ -118,6 +151,35 @@
 	[super windowDidLoad];
 	
 	[self.window setAppearance: [NSAppearance appearanceNamed: NSAppearanceNameVibrantDark]];
+	
+	//Javascript string
+    NSString * source = @"window.onload=function () { window.webkit.messageHandlers.sizeNotification.postMessage({width: document.width, height: document.height});};";
+
+    //UserScript object
+    WKUserScript * script = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+
+    //Content Controller object
+    WKUserContentController * controller = [[WKUserContentController alloc] init];
+
+    //Add script to controller
+    [controller addUserScript:script];
+
+    //Add message handler reference
+    [controller addScriptMessageHandler:self name:@"sizeNotification"];
+
+    //Create configuration
+    WKWebViewConfiguration * configuration = [[WKWebViewConfiguration alloc] init];
+
+    //Add controller to configuration
+    configuration.userContentController = controller;
+	
+	stepExplanationWebView = [[KNAppGuideResizingWebView alloc] initWithFrame: NSZeroRect configuration: configuration];
+	[stepExplanationWebViewContainer addSubview: stepExplanationWebView];
+	stepExplanationWebView.translatesAutoresizingMaskIntoConstraints = NO;
+	[stepExplanationWebView.leftAnchor constraintEqualToAnchor: stepExplanationWebViewContainer.leftAnchor].active = YES;
+	[stepExplanationWebView.rightAnchor constraintEqualToAnchor: stepExplanationWebViewContainer.rightAnchor].active = YES;
+	[stepExplanationWebView.topAnchor constraintEqualToAnchor: stepExplanationWebViewContainer.topAnchor].active = YES;
+	[stepExplanationWebView.bottomAnchor constraintEqualToAnchor: stepExplanationWebViewContainer.bottomAnchor].active = YES;
 }
 
 
@@ -129,6 +191,16 @@
 	[self closePresentation];
 	return NO;
 }
+
+
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
+    CGRect frame = message.webView.frame;
+    frame.size.height = [[message.body valueForKey:@"height"] floatValue];
+	((KNAppGuideResizingWebView*)message.webView).intrinsicContentSize = frame.size;
+	[((KNAppGuideResizingWebView*)message.webView) setNeedsLayout: YES];
+	[((KNAppGuideResizingWebView*)message.webView).window layoutIfNeeded];
+}
+
 
 -(IBAction)clickNext:(id)sender {
 	
@@ -207,39 +279,19 @@
 		str = [[self delegate] presenter:self willDisplayExplanation:str forStep:[[self guide] currentStep] inGuide:[self guide]];
 	}
 	
+	if( !self.guide.currentStep.explanationIsHTML ){
+		str = [str stringByReplacingOccurrencesOfString: @"&" withString: @"&amp;"];
+		str = [str stringByReplacingOccurrencesOfString: @"<" withString: @"&lt;"];
+		str = [str stringByReplacingOccurrencesOfString: @">" withString: @"&gt;"];
+		str = [str stringByReplacingOccurrencesOfString: @"\"" withString: @"&quot;"];
+		str = [str stringByReplacingOccurrencesOfString: @"\r\n" withString: @"\n"];
+		str = [str stringByReplacingOccurrencesOfString: @"\r" withString: @"\n"];
+		str = [str stringByReplacingOccurrencesOfString: @"\n" withString: @"<br />"];
+	}
+	
 	return str;
 }
 
-#pragma mark -
-#pragma mark Window sizing
-
--(CGFloat)heightOfExplanationString:(NSString *)string inWidth:(CGFloat)width {
-	
-	if (!string) {
-		return 0.0;
-	}
-	
-	NSDictionary *attributes = [[stepExplanationTextField attributedStringValue] attributesAtIndex:0 effectiveRange:NULL];
-	
-	NSTextStorage *storage = [[NSTextStorage alloc] initWithAttributedString:[[[NSAttributedString alloc] initWithString:string attributes:attributes] autorelease]];
-	NSTextContainer *container = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(width, FLT_MAX)];
-	NSLayoutManager *manager = [[NSLayoutManager alloc] init];
-	
-	[container setLineFragmentPadding:0.0];
-	
-	[manager addTextContainer:container];
-	[storage addLayoutManager:manager];
-	
-	[manager glyphRangeForTextContainer:container];
-	
-	CGFloat height = [manager usedRectForTextContainer:container].size.height;
-	
-	[storage release];
-	[container release];
-	[manager release];
-	
-	return height;
-}
 
 #pragma mark -
 #pragma mark KNAppGuideDelegate
@@ -278,6 +330,8 @@
 		
 		currentControlHighlight = [[KNAppGuideClassicHighlight highlightForItem:[step highlightedItem]] retain];
 	}
+	
+	[stepExplanationWebView loadHTMLString: self.taggedStepExplanation baseURL: nil];
 	
 	if ([[self delegate] respondsToSelector:@selector(presenter:didMoveToStep:inGuide:)]) {
 		[[self delegate] presenter:self didMoveToStep:step inGuide:[self guide]];

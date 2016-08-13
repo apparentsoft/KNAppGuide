@@ -68,7 +68,7 @@
 		
 		[[self contentView] addSubview:highlightView];
 		
-		[self setBackgroundColor:[NSColor clearColor]];
+		[self setBackgroundColor:[NSColor clearColor]];	
 		[self setAlphaValue:1.0];
 		[self setIgnoresMouseEvents:YES];
 		[self setExcludedFromWindowsMenu:YES];

@@ -51,6 +51,7 @@
 		50D635020FC1C578000C83AD /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 50D635010FC1C578000C83AD /* License.txt */; };
 		50E27D4D0FBB2EA800A0E3FA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */; };
 		55256CE31D5F6A4200F310DC /* Sample Guide.html in Resources */ = {isa = PBXBuildFile; fileRef = 55256CE21D5F6A4200F310DC /* Sample Guide.html */; };
+		55806BED1D5F94810091C70B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55806BEC1D5F94810091C70B /* WebKit.framework */; };
 		55D9A25C1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9A25B1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -104,7 +105,6 @@
 		506492CA0FC4302600CF7528 /* Release Notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Release Notes.txt"; sourceTree = "<group>"; };
 		5066052D0FC57A5B00BE6BCE /* KNAppGuideClassicMenuItemHighlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAppGuideClassicMenuItemHighlight.h; sourceTree = "<group>"; };
 		5066052E0FC57A5B00BE6BCE /* KNAppGuideClassicMenuItemHighlight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNAppGuideClassicMenuItemHighlight.m; sourceTree = "<group>"; };
-		506625E90FBAEFB500E60E52 /* BGHUDAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BGHUDAppKit.framework; sourceTree = "<group>"; };
 		506626800FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAppGuideHUDPresenter.h; sourceTree = "<group>"; };
 		506626810FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNAppGuideHUDPresenter.m; sourceTree = "<group>"; };
 		506691D80FB42E8100009AC1 /* KNAppGuidePresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAppGuidePresenter.h; sourceTree = "<group>"; };
@@ -137,6 +137,7 @@
 		50D635010FC1C578000C83AD /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		55256CE21D5F6A4200F310DC /* Sample Guide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Sample Guide.html"; sourceTree = "<group>"; };
+		55806BEC1D5F94810091C70B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		55D9A25B1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KNAppGuideHUDPresenter.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* KNAppGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KNAppGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55806BED1D5F94810091C70B /* WebKit.framework in Frameworks */,
 				50E27D4D0FBB2EA800A0E3FA /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				55806BEC1D5F94810091C70B /* WebKit.framework */,
+				50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -185,8 +189,6 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */,
-				506625E90FBAEFB500E60E52 /* BGHUDAppKit.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,

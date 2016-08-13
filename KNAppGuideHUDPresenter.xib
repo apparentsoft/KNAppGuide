@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="KNAppGuideHUDPresenter">
             <connections>
                 <outlet property="nextButton" destination="eHr-6Z-b57" id="hfO-wy-BSm"/>
+                <outlet property="stepExplanationWebViewContainer" destination="bpj-gI-BdP" id="Zqf-VZ-tPN"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VHs-hz-arO"/>
             </connections>
         </customObject>
@@ -17,10 +18,10 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES" utility="YES" HUD="YES"/>
             <windowCollectionBehavior key="collectionBehavior" canJoinAllSpaces="YES" transient="YES" fullScreenAuxiliary="YES" fullScreenDisallowsTiling="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="123"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="168"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="123"/>
+                <rect key="frame" x="0.0" y="0.0" width="480" height="168"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eHr-6Z-b57">
@@ -51,20 +52,6 @@
                             <binding destination="-2" name="title" keyPath="showMeButtonTitle" id="uCn-p2-6P9"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="9Tu-xg-cR0">
-                        <rect key="frame" x="18" y="61" width="92" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="440" id="nS2-tP-ofD"/>
-                        </constraints>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="7Qh-zJ-0VN">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <binding destination="-2" name="value" keyPath="taggedStepExplanation" id="96A-Tr-oLJ"/>
-                        </connections>
-                    </textField>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TPx-jF-Vfa">
                         <rect key="frame" x="14" y="13" width="53" height="32"/>
                         <buttonCell key="cell" type="push" title="←" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2tk-WF-c18">
@@ -77,7 +64,7 @@
                         </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jbb-Id-kfH">
-                        <rect key="frame" x="18" y="86" width="444" height="17"/>
+                        <rect key="frame" x="18" y="131" width="444" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="440" id="Vse-vS-XdY"/>
                         </constraints>
@@ -101,16 +88,18 @@
                             <binding destination="-2" name="value" keyPath="guideProgressTitle" id="ybK-zU-Muo"/>
                         </connections>
                     </textField>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="bpj-gI-BdP">
+                        <rect key="frame" x="20" y="61" width="440" height="62"/>
+                    </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9Tu-xg-cR0" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="47J-UV-JoA"/>
+                    <constraint firstItem="bpj-gI-BdP" firstAttribute="top" secondItem="Jbb-Id-kfH" secondAttribute="bottom" constant="8" id="1uc-Pp-h6H"/>
                     <constraint firstItem="Jbb-Id-kfH" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="8j0-tL-dss"/>
-                    <constraint firstItem="9Tu-xg-cR0" firstAttribute="top" secondItem="Jbb-Id-kfH" secondAttribute="bottom" constant="8" id="FeB-7k-jFB"/>
                     <constraint firstAttribute="trailing" secondItem="eHr-6Z-b57" secondAttribute="trailing" constant="20" id="Qoh-mQ-5TP"/>
-                    <constraint firstItem="9Tu-xg-cR0" firstAttribute="leading" secondItem="Jbb-Id-kfH" secondAttribute="leading" id="Qx1-YM-v8v"/>
                     <constraint firstItem="TPx-jF-Vfa" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="ae4-du-1eS"/>
-                    <constraint firstItem="TPx-jF-Vfa" firstAttribute="top" secondItem="9Tu-xg-cR0" secondAttribute="bottom" constant="20" id="c66-38-gk3"/>
+                    <constraint firstAttribute="trailing" secondItem="bpj-gI-BdP" secondAttribute="trailing" constant="20" id="bac-an-SEe"/>
                     <constraint firstItem="2I9-dV-U1a" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dxz-Ad-6PQ" secondAttribute="trailing" constant="12" id="fQB-Ox-Ibd"/>
+                    <constraint firstItem="bpj-gI-BdP" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="gzY-ll-cjp"/>
                     <constraint firstAttribute="trailing" secondItem="Jbb-Id-kfH" secondAttribute="trailing" constant="20" id="gzb-c1-XGp"/>
                     <constraint firstItem="Jbb-Id-kfH" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="iMY-my-s4W"/>
                     <constraint firstItem="dxz-Ad-6PQ" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" priority="750" id="jYl-Si-dnI"/>
@@ -118,14 +107,14 @@
                     <constraint firstItem="eHr-6Z-b57" firstAttribute="leading" secondItem="2I9-dV-U1a" secondAttribute="trailing" constant="12" id="rzt-fu-buN"/>
                     <constraint firstAttribute="bottom" secondItem="TPx-jF-Vfa" secondAttribute="bottom" constant="20" id="tOP-09-Ti8"/>
                     <constraint firstItem="dxz-Ad-6PQ" firstAttribute="baseline" secondItem="TPx-jF-Vfa" secondAttribute="baseline" id="unS-dL-kZx"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Tu-xg-cR0" secondAttribute="trailing" constant="20" id="vqf-Fb-IXg"/>
                     <constraint firstItem="eHr-6Z-b57" firstAttribute="baseline" secondItem="2I9-dV-U1a" secondAttribute="baseline" id="zEg-Id-2EI"/>
+                    <constraint firstItem="TPx-jF-Vfa" firstAttribute="top" secondItem="bpj-gI-BdP" secondAttribute="bottom" constant="20" id="zwR-mm-uVI"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="EZ9-s6-RZy"/>
             </connections>
-            <point key="canvasLocation" x="115" y="-71"/>
+            <point key="canvasLocation" x="115" y="-94"/>
         </window>
     </objects>
 </document>
