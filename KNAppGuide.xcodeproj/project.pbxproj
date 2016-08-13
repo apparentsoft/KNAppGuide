@@ -15,8 +15,6 @@
 		506492CB0FC4302600CF7528 /* Release Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 506492CA0FC4302600CF7528 /* Release Notes.txt */; };
 		506605380FC57BB900BE6BCE /* KNAppGuideClassicMenuItemHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066052E0FC57A5B00BE6BCE /* KNAppGuideClassicMenuItemHighlight.m */; };
 		506605390FC57BBC00BE6BCE /* KNAppGuideClassicMenuItemHighlight.h in Headers */ = {isa = PBXBuildFile; fileRef = 5066052D0FC57A5B00BE6BCE /* KNAppGuideClassicMenuItemHighlight.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		506625EA0FBAEFB500E60E52 /* BGHUDAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506625E90FBAEFB500E60E52 /* BGHUDAppKit.framework */; };
-		506626190FBAEFD100E60E52 /* BGHUDAppKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 506625E90FBAEFB500E60E52 /* BGHUDAppKit.framework */; };
 		506626820FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 506626800FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		506626830FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 506626810FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.m */; };
 		506691E30FB431A800009AC1 /* MainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 506691E20FB431A800009AC1 /* MainWindowController.m */; };
@@ -69,17 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		506626250FBAEFDE00E60E52 /* Copy Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				506626190FBAEFD100E60E52 /* BGHUDAppKit.framework in Copy Frameworks */,
-			);
-			name = "Copy Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		508967AB0FB9CE9C00439892 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,7 +145,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				506625EA0FBAEFB500E60E52 /* BGHUDAppKit.framework in Frameworks */,
 				50E27D4D0FBB2EA800A0E3FA /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,7 +389,6 @@
 				508967200FB9CD0F00439892 /* Resources */,
 				508967210FB9CD0F00439892 /* Sources */,
 				508967220FB9CD0F00439892 /* Frameworks */,
-				506626250FBAEFDE00E60E52 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
