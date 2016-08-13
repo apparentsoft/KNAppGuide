@@ -31,8 +31,7 @@
 	
 	NSError *err = nil;
 	NSXMLDocument *guideXMLDoc = [[[NSXMLDocument alloc] initWithContentsOfURL: [NSURL fileURLWithPath: guidePath] options:NSDataReadingMappedIfSafe error: &err] autorelease];
-	if( ! guideXMLDoc )
-	{
+	if( ! guideXMLDoc ) {
 		NSLog(@"error loading HTML help file: %@", err);
 		return nil;
 	}
@@ -44,22 +43,21 @@
 	NSString *title = titleElem.stringValue;
 	if( title )
 		[guideDict setObject: title forKey: @"title"];
-	NSArray *setterNodes = [guideXMLDoc nodesForXPath: @"//html/head/appguide:set" error:&err];
-	for( NSXMLElement* currSetterElem in setterNodes )
-	{
-		NSXMLNode*	nameAttr = [currSetterElem attributeForName: @"name"];
-		NSString*	name = nameAttr.stringValue;
-		NSXMLNode*	valueAttr = [currSetterElem attributeForName: @"value"];
-		NSString*	value = valueAttr.stringValue;
-		NSXMLNode*	shouldBeResolvedAttr = [currSetterElem attributeForName: @"shouldBeResolved"];
-		NSString*	shouldBeResolved = shouldBeResolvedAttr.stringValue;
-		
-		[guideDict setObject: value forKey: name];
-		if( shouldBeResolved != nil )
-		{
-			[guideDict setObject: [NSNumber numberWithBool: [shouldBeResolved caseInsensitiveCompare: @"YES"] == NSOrderedSame] forKey: [name stringByAppendingString: @"ShouldBeResolved"]];
-		}
+	NSArray<NSXMLElement*> *setterNodes = [guideXMLDoc nodesForXPath: @"//html/head/appguide:set" error:&err];
+	[self addTagsFromElements: setterNodes toGuideDictionary: guideDict];
+	
+	NSMutableArray *guideStepsArray = [NSMutableArray array];
+	NSArray<NSXMLElement*> *guideStepElems = [guideXMLDoc nodesForXPath: @"//html/body/div[@class='appguide']" error:&err];
+	for (NSXMLElement* currGuideStep in guideStepElems) {
+		setterNodes = [currGuideStep nodesForXPath: @"appguide:set" error:&err];
+		NSMutableDictionary *stepGuideDict = [NSMutableDictionary dictionary];
+		[stepGuideDict setObject: currGuideStep.stringValue forKey: @"explanation"];
+		[self addTagsFromElements: setterNodes toGuideDictionary: stepGuideDict];
+		[guideStepsArray addObject: stepGuideDict];
 	}
+	[guideDict setObject: guideStepsArray forKey: @"steps"];
+
+	NSLog(@"%@", guideDict);
 	
 	KNAppGuideLoader *loader = [[self alloc] init];	
 	[loader setResolver:aResolver];
@@ -68,6 +66,29 @@
 	
 	return guide;
 }
+
+
++(void)	addTagsFromElements: (NSArray<NSXMLElement*>*)setterNodes toGuideDictionary: (NSMutableDictionary*)guideDict
+{
+	for( NSXMLElement* currSetterElem in setterNodes )
+	{
+		NSXMLNode*	nameAttr = [currSetterElem attributeForName: @"name"];
+		NSString*	name = nameAttr.stringValue;
+		NSXMLNode*	valueAttr = [currSetterElem attributeForName: @"value"];
+		id			value = valueAttr.stringValue;
+		NSXMLNode*	shouldBeResolvedAttr = [currSetterElem attributeForName: @"shouldBeResolved"];
+		NSString*	shouldBeResolved = shouldBeResolvedAttr.stringValue;
+		if ([name caseInsensitiveCompare: @"completionRequiredForNextStep"] == NSOrderedSame) {
+			value = [NSNumber numberWithBool: [shouldBeResolved caseInsensitiveCompare: @"YES"] == NSOrderedSame];
+		}
+		
+		[guideDict setObject: value forKey: name];
+		if( shouldBeResolved != nil ) {
+			[guideDict setObject: [NSNumber numberWithBool: [shouldBeResolved caseInsensitiveCompare: @"YES"] == NSOrderedSame] forKey: [name stringByAppendingString: @"ShouldBeResolved"]];
+		}
+	}
+}
+
 
 +(id <KNAppGuide>)guideFromFile:(NSString *)guidePath resolver:(id <KNAppGuideResolver>)aResolver {
 	
