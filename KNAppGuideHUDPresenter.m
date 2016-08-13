@@ -38,7 +38,7 @@
 		NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
 		NSString *appName = [[NSFileManager defaultManager] displayNameAtPath: bundlePath];
 		
-		[[self window] setTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"default window title", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @""), appName]];
+		[[self window] setTitle:[NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"default window title", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @""), appName]];
 		
 		[self willChangeValueForKey:@"guide"];
 		guide = [g retain];
@@ -157,7 +157,7 @@
 #pragma mark UI Labels and such
 
 -(NSString *)showMeButtonTitle {
-	return NSLocalizedStringFromTableInBundle(@"show me button title", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @"");
+	return NSLocalizedStringFromTableInBundle(@"show me button title", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @"");
 }
 
 +(NSSet *)keyPathsForValuesAffectingNextButtonTitle {
@@ -166,14 +166,14 @@
 
 -(NSString *)nextButtonTitle {
 	if ([[self guide] hasFinished]) {
-		return NSLocalizedStringFromTableInBundle(@"done button title", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @"");
+		return NSLocalizedStringFromTableInBundle(@"done button title", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @"");
 	} else {
-		return NSLocalizedStringFromTableInBundle(@"next button title", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @"");
+		return NSLocalizedStringFromTableInBundle(@"next button title", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @"");
 	}
 }
 
 -(NSString *)previousButtonTitle {
-	return NSLocalizedStringFromTableInBundle(@"previous button title", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @"");
+	return NSLocalizedStringFromTableInBundle(@"previous button title", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @"");
 }
 
 +(NSSet *)keyPathsForValuesAffectingGuideProgressTitle {
@@ -181,7 +181,7 @@
 }
 
 -(NSString *)guideProgressTitle {
-	return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"progress label", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @""), 
+	return [NSString stringWithFormat:NSLocalizedStringFromTableInBundle(@"progress label", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @""),
 			[[[self guide] steps] indexOfObject:[[self guide] currentStep]] + 1,
 			[[[self guide] steps] count]];
 }
@@ -196,13 +196,13 @@
 -(NSString *)taggedStepExplanation {
 	
 	NSString *str = [[[[self guide] currentStep] explanation] stringByReplacingOccurrencesOfString:@"%PREVIOUSBUTTONTITLE" 
-																						withString:NSLocalizedStringFromTableInBundle(@"previous button title", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @"")];
+																						withString:NSLocalizedStringFromTableInBundle(@"previous button title", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @"")];
 	
 	str = [str stringByReplacingOccurrencesOfString:@"%NEXTBUTTONTITLE"
-										 withString:NSLocalizedStringFromTableInBundle(@"next button title", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @"")];
+										 withString:NSLocalizedStringFromTableInBundle(@"next button title", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @"")];
 	
 	str = [str stringByReplacingOccurrencesOfString:@"%DONEBUTTONTITLE"
-										 withString:NSLocalizedStringFromTableInBundle(@"done button title", @"KNAppGuideHUDPresenter", [NSBundle bundleForClass:[self class]], @"")];
+										 withString:NSLocalizedStringFromTableInBundle(@"done button title", @"KNAppGuideHUDPresenterStrings", [NSBundle bundleForClass:[self class]], @"")];
 	
 	
 	if ([[self delegate] respondsToSelector:@selector(presenter:willDisplayExplanation:forStep:inGuide:)]) {
