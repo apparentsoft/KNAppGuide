@@ -12,7 +12,6 @@
 		500ACAD612FC50D000366338 /* NSWindow+Fade.m in Sources */ = {isa = PBXBuildFile; fileRef = 500ACAD412FC50D000366338 /* NSWindow+Fade.m */; };
 		501225B40FBC1C0B001C50D3 /* KNToolBarExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 501225B20FBC1C0B001C50D3 /* KNToolBarExtensions.h */; };
 		501225B50FBC1C0B001C50D3 /* KNToolBarExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 501225B30FBC1C0B001C50D3 /* KNToolBarExtensions.m */; };
-		506492CB0FC4302600CF7528 /* Release Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 506492CA0FC4302600CF7528 /* Release Notes.txt */; };
 		506605380FC57BB900BE6BCE /* KNAppGuideClassicMenuItemHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066052E0FC57A5B00BE6BCE /* KNAppGuideClassicMenuItemHighlight.m */; };
 		506605390FC57BBC00BE6BCE /* KNAppGuideClassicMenuItemHighlight.h in Headers */ = {isa = PBXBuildFile; fileRef = 5066052D0FC57A5B00BE6BCE /* KNAppGuideClassicMenuItemHighlight.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		506626820FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 506626800FBAF7DF00E60E52 /* KNAppGuideHUDPresenter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,7 +46,6 @@
 		509EAB3C0FBDBF3200FE82D8 /* KNAppGuideHUDPresenterStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 509EAB390FBDBF3200FE82D8 /* KNAppGuideHUDPresenterStrings.strings */; };
 		50D633560FC1ACB1000C83AD /* KNAppGuideResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D633540FC1ACB1000C83AD /* KNAppGuideResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		50D633C50FC1AEE6000C83AD /* KNAppGuideDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 50D633C30FC1AEE6000C83AD /* KNAppGuideDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		50D634EB0FC1C2B1000C83AD /* READ ME.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 50D634EA0FC1C2B1000C83AD /* READ ME.rtfd */; };
 		50D635020FC1C578000C83AD /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 50D635010FC1C578000C83AD /* License.txt */; };
 		50E27D4D0FBB2EA800A0E3FA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */; };
 		55256CE31D5F6A4200F310DC /* Sample Guide.html in Resources */ = {isa = PBXBuildFile; fileRef = 55256CE21D5F6A4200F310DC /* Sample Guide.html */; };
@@ -134,12 +132,12 @@
 		50D041D10FB47F13005867A1 /* KNAppGuideEnterTextAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNAppGuideEnterTextAction.m; sourceTree = "<group>"; };
 		50D633540FC1ACB1000C83AD /* KNAppGuideResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAppGuideResolver.h; sourceTree = "<group>"; };
 		50D633C30FC1AEE6000C83AD /* KNAppGuideDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAppGuideDelegate.h; sourceTree = "<group>"; };
-		50D634EA0FC1C2B1000C83AD /* READ ME.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "READ ME.rtfd"; sourceTree = "<group>"; };
 		50D635010FC1C578000C83AD /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
 		55256CE21D5F6A4200F310DC /* Sample Guide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Sample Guide.html"; sourceTree = "<group>"; };
 		55806BEC1D5F94810091C70B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		55806BEE1D5FACD30091C70B /* old_apple_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = old_apple_icon.png; sourceTree = "<group>"; };
+		55806BF01D5FE11C0091C70B /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		55D9A25B1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KNAppGuideHUDPresenter.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* KNAppGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KNAppGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,7 +208,7 @@
 		29B97314FDCFA39411CA2CEA /* KNAppGuide */ = {
 			isa = PBXGroup;
 			children = (
-				50D634EA0FC1C2B1000C83AD /* READ ME.rtfd */,
+				55806BF01D5FE11C0091C70B /* Readme.md */,
 				50D635010FC1C578000C83AD /* License.txt */,
 				506492CA0FC4302600CF7528 /* Release Notes.txt */,
 				506691E40FB431AB00009AC1 /* Framework */,
@@ -475,10 +473,8 @@
 				55256CE31D5F6A4200F310DC /* Sample Guide.html in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				508B84550FB9C1D800BD4F48 /* Sample Guide.plist in Resources */,
-				50D634EB0FC1C2B1000C83AD /* READ ME.rtfd in Resources */,
 				55806BEF1D5FACD30091C70B /* old_apple_icon.png in Resources */,
 				50D635020FC1C578000C83AD /* License.txt in Resources */,
-				506492CB0FC4302600CF7528 /* Release Notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
