@@ -44,8 +44,6 @@
 		guide = [g retain];
 		[self didChangeValueForKey:@"guide"];
 		
-		[self sizeWindowToFit];
-		
 		[[self guide] setDelegate:self];
 		[[self guide] reset];
 	}
@@ -214,34 +212,6 @@
 
 #pragma mark -
 #pragma mark Window sizing
-
--(void)sizeWindowToFit {
-
-	// In System 7 and 8, the guide window resizes to fit each step as it's displayed.
-	// However, this (IMO) gives bad UX as if we resize from the top, the buttons
-	// move out from under the mouse, and if we resize from the bottom the titlebar 
-	// moves all over the place. To get around this, we'll set the window size to fit the largest 
-	// step and leave it there.
-	
-	CGFloat windowHeightNotIncludingExplanationText = [[self window] frame].size.height - [stepExplanationTextField frame].size.height;
-	CGFloat largestExplanationHeight = 0.0;
-	
-	for (id <KNAppGuideStep> step in [[self guide] steps]) {
-		
-		CGFloat explanationHeight = [self heightOfExplanationString:[step explanation] 
-															inWidth:[stepExplanationTextField frame].size.width];
-	
-		if (explanationHeight > largestExplanationHeight) {
-			largestExplanationHeight = explanationHeight;
-		}
-	}
-	
-	NSRect windowFrame = [[self window] frame];
-	windowFrame.size.height = windowHeightNotIncludingExplanationText + largestExplanationHeight;
-	
-	[[self window] setFrame:windowFrame display:YES];
-	
-}
 
 -(CGFloat)heightOfExplanationString:(NSString *)string inWidth:(CGFloat)width {
 	

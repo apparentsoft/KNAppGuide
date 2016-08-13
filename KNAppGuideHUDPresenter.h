@@ -25,6 +25,4 @@
 -(IBAction)clickPrevious:(id)sender;
 -(IBAction)clickPerformAction:(id)sender;
 
--(void)sizeWindowToFit;
-
 @end
