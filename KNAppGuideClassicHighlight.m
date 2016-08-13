@@ -146,6 +146,12 @@
 	NSEnableScreenUpdates();
 }
 
+
+- (NSRect)constrainFrameRect:(NSRect)frameRect toScreen:(nullable NSScreen *)screen {
+	return frameRect;	// Prevent coach marks that slightly overlap the menu bar from being pushed down.
+}
+
+
 -(void)dealloc {
 	
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSViewFrameDidChangeNotification object:[self view]];
