@@ -50,7 +50,7 @@
 		
 		NSMenu *parent = [currentMenuItem menu];
 		
-		if (parent == [NSApp mainMenu]) {
+		if (parent == [[NSApplication sharedApplication] mainMenu]) {
 			// Don't hightlight the top level item, 'cause it'll be circled
 			break;
 		} else if (parent == nil) {
@@ -59,6 +59,8 @@
 		} else {
 			[menuItemsToHighlight addObject:currentMenuItem];
 		}
+		if( ![parent supermenu] )
+			return nil;
 		
 		for (NSMenuItem *item in [[parent supermenu] itemArray]) {
 			if ([item submenu] == parent) {
