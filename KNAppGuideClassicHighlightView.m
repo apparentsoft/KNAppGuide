@@ -9,6 +9,12 @@
 #import "KNAppGuideClassicHighlightView.h"
 #import <Quartz/Quartz.h>
 
+
+@interface KNAppGuideClassicHighlightView () <NSAnimationDelegate>
+
+@end
+
+
 @implementation KNAppGuideClassicHighlightView
 
 - (id)initWithFrame:(NSRect)frame {
@@ -105,8 +111,8 @@
             break;
         }
         
-        float rad = progressRatio * 2.0 * pi;
-        rad += pi / 2; // So we're starting from the top middle rather than the middle right
+        float rad = progressRatio * 2.0 * M_PI;
+        rad += M_PI / 2; // So we're starting from the top middle rather than the middle right
 		float xSteps = cos(rad);
         float ySteps = sin(rad);
         

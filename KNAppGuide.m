@@ -204,7 +204,7 @@ static NSString *guideKVOContext = @"guideKVO";
 		if ([keyPath isEqualToString:@"action.hasBeenPerformed"]) {
 			
 			if ([[self delegate] respondsToSelector:@selector(guide:action:wasPerformedForStep:)]) {
-				[[self delegate] guide:self action:(id <KNAppGuideAction>)[object action] wasPerformedForStep:(id <KNAppGuideStep>)object];
+				[[self delegate] guide:self action: [(id <KNAppGuideStep>)object action] wasPerformedForStep:(id <KNAppGuideStep>)object];
 			}
 			
 			if (object == [self currentStep]) {
