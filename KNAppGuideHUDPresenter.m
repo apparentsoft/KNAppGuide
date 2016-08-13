@@ -134,10 +134,13 @@
 }
 
 -(void)closePresentation {
-	
 	if ([[self delegate] respondsToSelector:@selector(presenter:willFinishPresentingGuide:completed:)]) {
 		[[self delegate] presenter:self willFinishPresentingGuide:[self guide] completed:([[self guide] currentStep] == [[[self guide] steps] lastObject])];
 	}
+
+	// Ensure closing the window with the close box also removes any coach marks that may still be open:
+	[self guide: self.guide willMoveToStep: nil];
+	[self guide: self.guide didMoveToStep: nil];
 	
 	[nextButton setTarget:nil];
 	[nextButton setAction:nil];
