@@ -118,8 +118,8 @@
 	NSRect viewFrame;
 	
 	if ([[self view] superview]) { 
-		viewFrame = [[[self view] superview] convertRectToBase:[[self view] frame]]; 
-		controlOriginInScreenSpace = [[[self view] window] convertBaseToScreen:viewFrame.origin];
+		viewFrame = [[[self view] superview] convertRect: [[self view] frame] toView: nil];
+		controlOriginInScreenSpace = [[[self view] window] convertRectToScreen: (NSRect){ viewFrame.origin, {0,0} }].origin;
 	} else {
 		// A menu item!
 		viewFrame = [[self view] frame];

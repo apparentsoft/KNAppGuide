@@ -9,6 +9,11 @@
 #import "KNAppGuideEnterDateAction.h"
 
 
+@interface KNAppGuideEnterDateAction () <NSDatePickerCellDelegate>
+
+@end
+
+
 @implementation KNAppGuideEnterDateAction
 
 +(KNAppGuideEnterDateAction *)actionForDefaultDate:(NSDate *)date inDatePicker:(NSDatePicker *)aPicker {
