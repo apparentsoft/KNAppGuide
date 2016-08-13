@@ -8,7 +8,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="KNAppGuideHUDPresenter">
             <connections>
                 <outlet property="nextButton" destination="eHr-6Z-b57" id="hfO-wy-BSm"/>
-                <outlet property="stepExplanationTextField" destination="Ybb-Ex-zXO" id="PBK-41-LYa"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="VHs-hz-arO"/>
             </connections>
         </customObject>
@@ -46,20 +45,6 @@
                             <binding destination="-2" name="title" keyPath="showMeButtonTitle" id="uCn-p2-6P9"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ybb-Ex-zXO">
-                        <rect key="frame" x="18" y="83" width="76" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="440" id="SnH-W6-3Xt"/>
-                        </constraints>
-                        <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Instructions" id="Bu0-qI-X0Q">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <binding destination="-2" name="value" keyPath="taggedStepExplanation" id="88m-82-qN7"/>
-                        </connections>
-                    </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dxz-Ad-6PQ">
                         <rect key="frame" x="18" y="61" width="444" height="14"/>
                         <constraints>
@@ -67,7 +52,7 @@
                         </constraints>
                         <textFieldCell key="cell" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Instructions" id="gsa-R1-Tjz">
                             <font key="font" metaFont="smallSystem"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
@@ -85,20 +70,33 @@
                             <binding destination="-2" name="title" keyPath="previousButtonTitle" id="C9v-Tg-jgu"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="9Tu-xg-cR0">
+                        <rect key="frame" x="18" y="83" width="92" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="440" id="nS2-tP-ofD"/>
+                        </constraints>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Multiline Label" id="7Qh-zJ-0VN">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="taggedStepExplanation" id="96A-Tr-oLJ"/>
+                        </connections>
+                    </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Ybb-Ex-zXO" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="2bh-z9-8Nk"/>
-                    <constraint firstItem="Ybb-Ex-zXO" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="3Bi-ht-fPL"/>
-                    <constraint firstItem="dxz-Ad-6PQ" firstAttribute="leading" secondItem="Ybb-Ex-zXO" secondAttribute="leading" id="Fa1-7u-RHJ"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ybb-Ex-zXO" secondAttribute="trailing" constant="20" id="FaK-Tx-0zI"/>
-                    <constraint firstAttribute="trailing" secondItem="Ybb-Ex-zXO" secondAttribute="trailing" priority="750" constant="20" id="JD2-UY-fY8"/>
+                    <constraint firstItem="dxz-Ad-6PQ" firstAttribute="top" secondItem="9Tu-xg-cR0" secondAttribute="bottom" constant="8" id="0O1-Lh-cXJ"/>
+                    <constraint firstItem="9Tu-xg-cR0" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="47J-UV-JoA"/>
+                    <constraint firstItem="dxz-Ad-6PQ" firstAttribute="leading" secondItem="9Tu-xg-cR0" secondAttribute="leading" id="ICD-SR-evM"/>
                     <constraint firstAttribute="trailing" secondItem="eHr-6Z-b57" secondAttribute="trailing" constant="20" id="Qoh-mQ-5TP"/>
-                    <constraint firstItem="dxz-Ad-6PQ" firstAttribute="top" secondItem="Ybb-Ex-zXO" secondAttribute="bottom" constant="8" id="Re1-WY-JA5"/>
                     <constraint firstItem="TPx-jF-Vfa" firstAttribute="top" secondItem="dxz-Ad-6PQ" secondAttribute="bottom" constant="20" id="ZU6-OI-aPV"/>
                     <constraint firstItem="TPx-jF-Vfa" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="ae4-du-1eS"/>
                     <constraint firstAttribute="bottom" secondItem="eHr-6Z-b57" secondAttribute="bottom" constant="20" id="lo7-6g-CAS"/>
                     <constraint firstItem="2I9-dV-U1a" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="o1d-4y-jic"/>
+                    <constraint firstItem="9Tu-xg-cR0" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="sjQ-Sb-X3L"/>
                     <constraint firstAttribute="bottom" secondItem="TPx-jF-Vfa" secondAttribute="bottom" constant="20" id="tOP-09-Ti8"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Tu-xg-cR0" secondAttribute="trailing" constant="20" id="vqf-Fb-IXg"/>
                     <constraint firstItem="eHr-6Z-b57" firstAttribute="baseline" secondItem="2I9-dV-U1a" secondAttribute="baseline" id="zEg-Id-2EI"/>
                 </constraints>
             </view>
