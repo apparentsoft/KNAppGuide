@@ -17,7 +17,7 @@
 -(id)initWithGuide:(id <KNAppGuide>)g;
 
 @property (nonatomic, readonly) id <KNAppGuide> guide;
-@property (nonatomic, readwrite, retain) id <KNAppGuidePresenterDelegate> delegate;
+@property (nonatomic, readwrite, retain) id <KNAppGuidePresenterDelegate> delegate;	// RETAINS THE DELEGATE! (Should be fine, the presenter keeps itself alive and nobody keeps references to it)
 
 -(NSWindow *)window;
 
