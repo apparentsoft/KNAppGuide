@@ -29,10 +29,10 @@
 	
 	// The file at path should be a plist conforming to the KNAppGuide structure. 
 	
-	NSDictionary *guideDict = [NSPropertyListSerialization propertyListFromData:[NSData dataWithContentsOfFile:guidePath] 
-															   mutabilityOption:NSPropertyListImmutable 
+	NSDictionary *guideDict = [NSPropertyListSerialization propertyListWithData:[NSData dataWithContentsOfFile:guidePath]
+															            options:NSPropertyListImmutable
 																		 format:nil
-															   errorDescription:nil];
+																		  error:nil];
 	
 	KNAppGuideLoader *loader = [[self alloc] init];	
 	[loader setResolver:aResolver];

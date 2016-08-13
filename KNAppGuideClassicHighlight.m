@@ -60,7 +60,7 @@
 	highlightView = [[KNAppGuideClassicHighlightView alloc] initWithFrame:NSZeroRect];
 	
 	if (self = [super initWithContentRect:NSZeroRect 
-								styleMask:NSBorderlessWindowMask 
+								styleMask:NSWindowStyleMaskBorderless 
 								  backing:NSBackingStoreBuffered 
 									defer:NO]) {
 		
