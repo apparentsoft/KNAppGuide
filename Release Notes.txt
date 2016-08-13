@@ -10,6 +10,8 @@ Version 0.3.5 (Saturday, August 13th, 2016)
 
  -	Removed BGHUDAppKit and recreated the XIB so it does not use discontinued IBPlugins.
 
+ -	Added HTML format for specifying guides in.
+
 
 Version 0.3.4 (Released Friday, October 2nd, 2009)
 ==================================================

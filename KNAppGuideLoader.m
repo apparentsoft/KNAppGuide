@@ -59,11 +59,18 @@
 	NSMutableArray *guideStepsArray = [NSMutableArray array];
 	NSArray<NSXMLElement*> *guideStepElems = [guideXMLDoc nodesForXPath: @"//html/body/section" error:&err];
 	for (NSXMLElement* currGuideStep in guideStepElems) {
-		setterNodes = [currGuideStep nodesForXPath: @"appguide:set" error:&err];
 		NSMutableDictionary *stepGuideDict = [NSMutableDictionary dictionary];
 		[stepGuideDict setObject: currGuideStep.description forKey: @"explanation"];
 		[stepGuideDict setObject: @"html" forKey: @"explanationFormat"];
+		setterNodes = [currGuideStep nodesForXPath: @"appguide:set" error:&err];
 		[self addTagsFromElements: setterNodes toGuideDictionary: stepGuideDict];
+		setterNodes = [currGuideStep nodesForXPath: @"appguide:action/node()" error:&err];
+		if( setterNodes != nil ) {
+			NSMutableDictionary *actionGuideDict = [NSMutableDictionary dictionary];
+			[self addTagsFromElements: setterNodes toGuideDictionary: actionGuideDict];
+			if( actionGuideDict.count > 0 )
+				[stepGuideDict setObject: actionGuideDict forKey: @"action"];
+		}
 		[guideStepsArray addObject: stepGuideDict];
 	}
 	[guideDict setObject: guideStepsArray forKey: @"steps"];

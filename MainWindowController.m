@@ -17,7 +17,7 @@
 
 	// This method instantiates a guide from the sample guide file included in the demo app and runs it.
 	
-	id <KNAppGuide> guide = [KNAppGuide guideWithName:@"Sample Guide.plist" 
+	id <KNAppGuide> guide = [KNAppGuide guideWithName:@"Sample Guide.plist" // Specify your own suffix. If you leave it off, it'll try ".guide" for the plist, and ".html" or ".htm" if that's not found.
 							 resolver:[KNAppGuideBasicKVCResolver basicResolverWithBaseObject:self]];
 	
 	presenter = [[KNAppGuideHUDPresenter alloc] initWithGuide:guide];
@@ -30,7 +30,7 @@
 
 	// This method instantiates a guide from the sample guide file included in the demo app and runs it.
 	
-	id <KNAppGuide> guide = [KNAppGuide guideWithName:@"Sample Guide.html" 
+	id <KNAppGuide> guide = [KNAppGuide guideWithName:@"Sample Guide"
 							 resolver:[KNAppGuideBasicKVCResolver basicResolverWithBaseObject:self]];
 	
 	presenter = [[KNAppGuideHUDPresenter alloc] initWithGuide:guide];
