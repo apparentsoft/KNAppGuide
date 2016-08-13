@@ -39,7 +39,7 @@
 		
 	// This method instantiates a guide, adds steps manually and runs it.
 	
-	id <KNAppGuide> guide = [[KNAppGuide alloc] init];
+	id <KNAppGuide> guide = [[[KNAppGuide alloc] init] autorelease];
 	
 	[guide setTitle:@"KNAppGuide Guide"];
 	
