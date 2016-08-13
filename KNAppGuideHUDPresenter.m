@@ -339,8 +339,8 @@
 	}
 	
 	NSFont *theFont = [NSFont systemFontOfSize: [NSFont systemFontSize]];
-	NSString *htmlString = [NSString stringWithFormat: @"<html><head><style>body { margin: 0pt; background-color: transparent; } h1 { font-family: '%1$@'; font-style: bold; font-size: %2$d; color: white; } section { font-family: '%1$@'; font-size: %2$d; color: white; }</style></head><body><h1>%4$@</h1>%3$@</body></html>", theFont.familyName, (int)theFont.pointSize, self.taggedStepExplanation, self.guide.title];
-	[stepExplanationWebView loadHTMLString: htmlString baseURL: nil];
+	NSString *htmlString = [NSString stringWithFormat: @"<html><head><style>body { margin: 0pt; background-color: transparent; } h1 { font-family: '%1$@'; font-style: bold; font-size: %2$d; color: white; } section { font-family: '%1$@'; font-size: %2$d; color: white; }</style>%5$@</head><body><h1>%4$@</h1>%3$@</body></html>", theFont.familyName, (int)theFont.pointSize, self.taggedStepExplanation, self.guide.title, self.guide.headHTML];
+	[stepExplanationWebView loadHTMLString: htmlString baseURL: self.guide.baseDocumentURL];
 	[stepExplanationWebView setValue: @YES forKey: @"drawsTransparentBackground"];
 	
 	if ([[self delegate] respondsToSelector:@selector(presenter:didMoveToStep:inGuide:)]) {

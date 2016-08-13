@@ -56,6 +56,8 @@
 
 @property (copy, nonatomic, readwrite) NSString *title;
 @property (copy, nonatomic, readwrite) NSString *identifier;
+@property (copy, nonatomic, readwrite) NSString *headHTML;
+@property (retain, nonatomic, readwrite) NSURL *baseDocumentURL;
 @property (retain, nonatomic, readwrite) NSArray *steps;
 @property (retain, nonatomic, readwrite) id <KNAppGuideStep>currentStep;
 @property (assign, nonatomic, readwrite) id <KNAppGuideDelegate> delegate;

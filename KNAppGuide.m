@@ -40,6 +40,8 @@ static NSString *guideKVOContext = @"guideKVO";
 @synthesize steps;
 @synthesize delegate;
 @synthesize title;
+@synthesize headHTML;
+@synthesize baseDocumentURL;
 @synthesize identifier;
 
 +(NSSet *)keyPathsForValuesAffectingHasFinished {
@@ -225,6 +227,11 @@ static NSString *guideKVOContext = @"guideKVO";
 	[self setDelegate:nil];
 	[self setCurrentStep:nil];
 	[self setSteps:nil];
+	
+	self.title = nil;
+	self.identifier = nil;
+	self.headHTML = nil;
+	self.baseDocumentURL = nil;
 	
 	[self removeObserver:self forKeyPath:@"steps"];
 	

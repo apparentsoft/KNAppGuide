@@ -29,8 +29,9 @@
 	
 	// The file at path should be a plist conforming to the KNAppGuide structure. 
 	
+	NSURL *guideURL = [NSURL fileURLWithPath: guidePath];
 	NSError *err = nil;
-	NSXMLDocument *guideXMLDoc = [[[NSXMLDocument alloc] initWithContentsOfURL: [NSURL fileURLWithPath: guidePath] options:NSDataReadingMappedIfSafe error: &err] autorelease];
+	NSXMLDocument *guideXMLDoc = [[[NSXMLDocument alloc] initWithContentsOfURL: guideURL options:NSDataReadingMappedIfSafe error: &err] autorelease];
 	if( ! guideXMLDoc ) {
 		NSLog(@"error loading HTML help file: %@", err);
 		return nil;
@@ -45,6 +46,15 @@
 		[guideDict setObject: title forKey: @"title"];
 	NSArray<NSXMLElement*> *setterNodes = [guideXMLDoc nodesForXPath: @"//html/head/appguide:set" error:&err];
 	[self addTagsFromElements: setterNodes toGuideDictionary: guideDict];
+	NSArray *headElems = [guideXMLDoc nodesForXPath: @"//html/head/node()" error:&err];
+	NSMutableString *headHTML = [NSMutableString string];
+	for( NSXMLNode *headElem in headElems )
+	{
+		if( ![headElem.name hasPrefix: @"appguide:"] && [headElem.name caseInsensitiveCompare: @"style"] != NSOrderedSame )
+			[headHTML appendString: headElem.description];
+	}
+	[guideDict setObject: headHTML forKey: @"headHTML"];
+	[guideDict setObject: [guideURL URLByDeletingLastPathComponent] forKey: @"baseDocumentURL"];
 	
 	NSMutableArray *guideStepsArray = [NSMutableArray array];
 	NSArray<NSXMLElement*> *guideStepElems = [guideXMLDoc nodesForXPath: @"//html/body/section" error:&err];
