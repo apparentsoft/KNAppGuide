@@ -1,6 +1,6 @@
 KNAppGuide
 ==========
-by Daniel Kennett - http://www.kennettnet.co.uk/code/KNAppGuide
+by Daniel Kennett
 
 # What is KNAppGuide?
 
@@ -61,8 +61,6 @@ Take a look at the sample application for an example of how to create and presen
 If you've any questions, please contact me using the details below:
 
 Twitter: iKenndac
-
-Email: daniel@kennettnet.co.uk
 
 AIM: kenndac
 
