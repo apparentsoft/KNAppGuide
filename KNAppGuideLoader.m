@@ -47,7 +47,7 @@
 	[self addTagsFromElements: setterNodes toGuideDictionary: guideDict];
 	
 	NSMutableArray *guideStepsArray = [NSMutableArray array];
-	NSArray<NSXMLElement*> *guideStepElems = [guideXMLDoc nodesForXPath: @"//html/body/div[@class='appguide']" error:&err];
+	NSArray<NSXMLElement*> *guideStepElems = [guideXMLDoc nodesForXPath: @"//html/body/section" error:&err];
 	for (NSXMLElement* currGuideStep in guideStepElems) {
 		setterNodes = [currGuideStep nodesForXPath: @"appguide:set" error:&err];
 		NSMutableDictionary *stepGuideDict = [NSMutableDictionary dictionary];
