@@ -38,8 +38,28 @@
 	}
 	
 	NSMutableDictionary*	guideDict = [NSMutableDictionary dictionary];
-	
-	NSLog(@"%@", guideXMLDoc);
+
+	NSArray *titleElems = [guideXMLDoc nodesForXPath: @"//html/head/title" error:&err];
+	NSXMLNode *titleElem = titleElems.firstObject;
+	NSString *title = titleElem.stringValue;
+	if( title )
+		[guideDict setObject: title forKey: @"title"];
+	NSArray *setterNodes = [guideXMLDoc nodesForXPath: @"//html/head/appguide:set" error:&err];
+	for( NSXMLElement* currSetterElem in setterNodes )
+	{
+		NSXMLNode*	nameAttr = [currSetterElem attributeForName: @"name"];
+		NSString*	name = nameAttr.stringValue;
+		NSXMLNode*	valueAttr = [currSetterElem attributeForName: @"value"];
+		NSString*	value = valueAttr.stringValue;
+		NSXMLNode*	shouldBeResolvedAttr = [currSetterElem attributeForName: @"shouldBeResolved"];
+		NSString*	shouldBeResolved = shouldBeResolvedAttr.stringValue;
+		
+		[guideDict setObject: value forKey: name];
+		if( shouldBeResolved != nil )
+		{
+			[guideDict setObject: [NSNumber numberWithBool: [shouldBeResolved caseInsensitiveCompare: @"YES"] == NSOrderedSame] forKey: [name stringByAppendingString: @"ShouldBeResolved"]];
+		}
+	}
 	
 	KNAppGuideLoader *loader = [[self alloc] init];	
 	[loader setResolver:aResolver];
