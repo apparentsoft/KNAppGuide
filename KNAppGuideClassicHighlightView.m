@@ -45,7 +45,7 @@
         float marker = 0.0;
         float frameInterval = [circleAnimation duration] * [circleAnimation frameRate];
         
-        for (marker == 0.0; marker <= 1.0; marker += 1.0 / frameInterval) {
+        for (marker = 0.0; marker <= 1.0; marker += 1.0 / frameInterval) {
             [circleAnimation addProgressMark:marker];
         }
         
