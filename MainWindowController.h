@@ -27,6 +27,7 @@
 @property BOOL datePickerIsHidden;
 
 -(IBAction)startGuideFromFile:(id)sender;
+-(IBAction)startGuideFromHTMLFile:(id)sender;
 -(IBAction)startGuideFromCode:(id)sender;
 
 -(IBAction)clickButton:(id)sender;

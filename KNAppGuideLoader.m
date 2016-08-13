@@ -25,6 +25,30 @@
 
 @implementation KNAppGuideLoader
 
++(id <KNAppGuide>)guideFromHTMLFile:(NSString *)guidePath resolver:(id <KNAppGuideResolver>)aResolver {
+	
+	// The file at path should be a plist conforming to the KNAppGuide structure. 
+	
+	NSError *err = nil;
+	NSXMLDocument *guideXMLDoc = [[[NSXMLDocument alloc] initWithContentsOfURL: [NSURL fileURLWithPath: guidePath] options:NSDataReadingMappedIfSafe error: &err] autorelease];
+	if( ! guideXMLDoc )
+	{
+		NSLog(@"error loading HTML help file: %@", err);
+		return nil;
+	}
+	
+	NSMutableDictionary*	guideDict = [NSMutableDictionary dictionary];
+	
+	NSLog(@"%@", guideXMLDoc);
+	
+	KNAppGuideLoader *loader = [[self alloc] init];	
+	[loader setResolver:aResolver];
+	id <KNAppGuide> guide = [loader guideWithDictionary:guideDict];
+	[loader release];
+	
+	return guide;
+}
+
 +(id <KNAppGuide>)guideFromFile:(NSString *)guidePath resolver:(id <KNAppGuideResolver>)aResolver {
 	
 	// The file at path should be a plist conforming to the KNAppGuide structure. 
@@ -51,13 +75,25 @@
 		NSString *path = [bundle pathForResource:name ofType:@"guide"];
 		
 		if (!path) {
+			path = [bundle pathForResource:name ofType: @"html"];
+		}
+		if (!path) {
+			path = [bundle pathForResource:name ofType: @"htm"];
+		}
+		if (!path) {
 			path = [bundle pathForResource:name ofType:nil];
 		}
 		
 		if (!path) {
 			return nil;
 		} else {
-			return [self guideFromFile:path resolver:aResolver];
+			NSString *suffix = [path pathExtension];
+			if ([suffix caseInsensitiveCompare: @"html"] == NSOrderedSame
+				|| [suffix caseInsensitiveCompare: @"htm"] == NSOrderedSame) {
+				return [self guideFromHTMLFile:path resolver:aResolver];
+			} else {
+				return [self guideFromFile:path resolver:aResolver];
+			}
 		}
 	}
 }

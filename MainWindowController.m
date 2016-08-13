@@ -26,6 +26,19 @@
 	
 }
 
+-(IBAction)startGuideFromHTMLFile:(id)sender {
+
+	// This method instantiates a guide from the sample guide file included in the demo app and runs it.
+	
+	id <KNAppGuide> guide = [KNAppGuide guideWithName:@"Sample Guide.html" 
+							 resolver:[KNAppGuideBasicKVCResolver basicResolverWithBaseObject:self]];
+	
+	presenter = [[KNAppGuideHUDPresenter alloc] initWithGuide:guide];
+	[presenter setDelegate:self];
+	[presenter beginPresentation];
+	
+}
+
 -(void)presenter:(id <KNAppGuidePresenter>)aPresenter didFinishPresentingGuide:(id <KNAppGuide>)aGuide completed:(BOOL)wasCompleted {
 	// Called after the window is closed
 

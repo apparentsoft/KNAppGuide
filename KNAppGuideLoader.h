@@ -59,6 +59,7 @@
 	id <KNAppGuideResolver> resolver;
 }
 
++(id <KNAppGuide>)guideFromHTMLFile:(NSString *)guidePath resolver:(id <KNAppGuideResolver>)aResolver; // Loads from the file at path
 +(id <KNAppGuide>)guideFromFile:(NSString *)guidePath resolver:(id <KNAppGuideResolver>)aResolver; // Loads from the file at path
 +(id <KNAppGuide>)guideFromBundle:(NSBundle *)bundle withName:(NSString *)name resolver:(id <KNAppGuideResolver>)aResolver; // Will search for <name>.guide, then just <name> in the given bundle.
 +(id <KNAppGuide>)guideWithName:(NSString *)name resolver:(id <KNAppGuideResolver>)aResolver; // Will search for <name>.guide, then just <name> in the main bundle.

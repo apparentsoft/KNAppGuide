@@ -50,6 +50,7 @@
 		50D634EB0FC1C2B1000C83AD /* READ ME.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 50D634EA0FC1C2B1000C83AD /* READ ME.rtfd */; };
 		50D635020FC1C578000C83AD /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 50D635010FC1C578000C83AD /* License.txt */; };
 		50E27D4D0FBB2EA800A0E3FA /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */; };
+		55256CE31D5F6A4200F310DC /* Sample Guide.html in Resources */ = {isa = PBXBuildFile; fileRef = 55256CE21D5F6A4200F310DC /* Sample Guide.html */; };
 		55D9A25C1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D9A25B1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -135,6 +136,7 @@
 		50D634EA0FC1C2B1000C83AD /* READ ME.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "READ ME.rtfd"; sourceTree = "<group>"; };
 		50D635010FC1C578000C83AD /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		50E27D4C0FBB2EA800A0E3FA /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = /System/Library/Frameworks/Quartz.framework; sourceTree = "<absolute>"; };
+		55256CE21D5F6A4200F310DC /* Sample Guide.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Sample Guide.html"; sourceTree = "<group>"; };
 		55D9A25B1D5F389000DBFFF6 /* KNAppGuideHUDPresenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KNAppGuideHUDPresenter.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* KNAppGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KNAppGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				508B84540FB9C1D800BD4F48 /* Sample Guide.plist */,
+				55256CE21D5F6A4200F310DC /* Sample Guide.html */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -464,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				55256CE31D5F6A4200F310DC /* Sample Guide.html in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				508B84550FB9C1D800BD4F48 /* Sample Guide.plist in Resources */,
 				50D634EB0FC1C2B1000C83AD /* READ ME.rtfd in Resources */,
