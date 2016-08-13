@@ -79,7 +79,7 @@
 		NSXMLNode*	shouldBeResolvedAttr = [currSetterElem attributeForName: @"shouldBeResolved"];
 		NSString*	shouldBeResolved = shouldBeResolvedAttr.stringValue;
 		if ([name caseInsensitiveCompare: @"completionRequiredForNextStep"] == NSOrderedSame) {
-			value = [NSNumber numberWithBool: [shouldBeResolved caseInsensitiveCompare: @"YES"] == NSOrderedSame];
+			value = [NSNumber numberWithBool: [value caseInsensitiveCompare: @"YES"] == NSOrderedSame];
 		}
 		
 		[guideDict setObject: value forKey: name];
