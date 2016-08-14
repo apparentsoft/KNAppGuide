@@ -102,6 +102,8 @@
 				static NSDateFormatter*	sDateFmt = nil;
 				if( !sDateFmt ) {
 					sDateFmt = [NSDateFormatter new];
+					NSLocale *fixedLocale = [[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"] autorelease];
+					[sDateFmt setLocale: fixedLocale];
 					sDateFmt.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
 				}
 				value = [sDateFmt dateFromString: value];
