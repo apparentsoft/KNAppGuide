@@ -64,8 +64,6 @@
 								  backing:NSBackingStoreBuffered 
 									defer:NO]) {
 		
-		NSDisableScreenUpdates();
-		
 		[[self contentView] addSubview:highlightView];
 		
 		[self setBackgroundColor:[NSColor clearColor]];	
@@ -82,8 +80,6 @@
 		[self positionOverView];
 		
 		//[[aView window] addChildWindow:self ordered:NSWindowAbove];
-		
-		NSEnableScreenUpdates();
 	}
 	
 	return self;
@@ -100,8 +96,6 @@
 }
 
 -(void)positionOverView {
-	
-	NSDisableScreenUpdates();
 	
 	[[self parentWindow] removeChildWindow:self];
 	[self orderOut:self];
@@ -142,8 +136,6 @@
 	} else {
 		[self orderFront:nil];
 	}
-	
-	NSEnableScreenUpdates();
 }
 
 

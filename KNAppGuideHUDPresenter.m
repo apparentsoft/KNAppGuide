@@ -97,14 +97,16 @@
 	if (currentControlHighlight) {
 		
 		NSWindow*	wd = [currentControlHighlight retain];
-		[wd setAlphaValue: 1.0];
 		[NSAnimationContext beginGrouping];
 		[[NSAnimationContext currentContext] setDuration: 0.25];
-		[[wd animator] setAlphaValue: 0.f];
-		[NSAnimationContext currentContext].completionHandler = ^(){ [wd orderOut: nil]; [wd release]; };
+		[[wd animator] setAlphaValue: 0.0];
+		[NSAnimationContext currentContext].completionHandler = ^() {
+			[wd.parentWindow removeChildWindow: wd];
+			[wd orderOut: nil];
+			[wd release];
+		};
 		[NSAnimationContext endGrouping];
 		
-		[[currentControlHighlight parentWindow] removeChildWindow:currentControlHighlight];
 		[currentControlHighlight release];
 		currentControlHighlight = nil;
 	}
@@ -144,11 +146,13 @@
 	[nextButton setAction:nil];
 	
 	NSWindow *wd = [self.window retain];
-	[wd setAlphaValue: 1.0];
 	[NSAnimationContext beginGrouping];
 	[[NSAnimationContext currentContext] setDuration: 0.25];
 	[[wd animator] setAlphaValue: 0.0];
-	[NSAnimationContext currentContext].completionHandler = ^(){ [wd orderOut: self]; [wd release]; };
+	[NSAnimationContext currentContext].completionHandler = ^() {
+		[wd orderOut: self];
+		[wd release];
+	};
 	[NSAnimationContext endGrouping];
 	
 	if ([[self delegate] respondsToSelector:@selector(presenter:didFinishPresentingGuide:completed:)]) {
@@ -342,14 +346,16 @@
 		if (currentControlHighlight) {
 			
 			NSWindow *wd = [currentControlHighlight retain];
-			[wd setAlphaValue: 1.0];
 			[NSAnimationContext beginGrouping];
 			[[NSAnimationContext currentContext] setDuration: 0.25];
 			[[wd animator] setAlphaValue: 0.0];
-			[NSAnimationContext currentContext].completionHandler = ^(){ [wd orderOut: self]; [wd release]; };
+			[NSAnimationContext currentContext].completionHandler = ^() {
+				[wd.parentWindow removeChildWindow: wd];
+				[wd orderOut: self];
+				[wd release];
+			};
 			[NSAnimationContext endGrouping];
 			
-			[[currentControlHighlight parentWindow] removeChildWindow:currentControlHighlight];
 			[currentControlHighlight release];
 			currentControlHighlight = nil;
 		}
