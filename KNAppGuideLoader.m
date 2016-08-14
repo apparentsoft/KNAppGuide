@@ -98,6 +98,13 @@
 			BOOL isYesBool = [value caseInsensitiveCompare: @"YES"] == NSOrderedSame;
 			if( isYesBool || [value caseInsensitiveCompare: @"NO"] == NSOrderedSame ) {
 				value = [NSNumber numberWithBool: isYesBool];
+			} else if( [name hasSuffix: @"Date"] ) {
+				static NSDateFormatter*	sDateFmt = nil;
+				if( !sDateFmt ) {
+					sDateFmt = [NSDateFormatter new];
+					sDateFmt.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+				}
+				value = [sDateFmt dateFromString: value];
 			}
 			[guideDict setObject: value forKey: name];
 		}
