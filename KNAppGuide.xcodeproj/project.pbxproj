@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		500ACAD512FC50D000366338 /* NSWindow+Fade.h in Headers */ = {isa = PBXBuildFile; fileRef = 500ACAD312FC50D000366338 /* NSWindow+Fade.h */; };
-		500ACAD612FC50D000366338 /* NSWindow+Fade.m in Sources */ = {isa = PBXBuildFile; fileRef = 500ACAD412FC50D000366338 /* NSWindow+Fade.m */; };
 		501225B40FBC1C0B001C50D3 /* KNToolBarExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 501225B20FBC1C0B001C50D3 /* KNToolBarExtensions.h */; };
 		501225B50FBC1C0B001C50D3 /* KNToolBarExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 501225B30FBC1C0B001C50D3 /* KNToolBarExtensions.m */; };
 		506605380FC57BB900BE6BCE /* KNAppGuideClassicMenuItemHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = 5066052E0FC57A5B00BE6BCE /* KNAppGuideClassicMenuItemHighlight.m */; };
@@ -90,8 +88,6 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* KNAppGuide_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNAppGuide_Prefix.pch; sourceTree = "<group>"; };
-		500ACAD312FC50D000366338 /* NSWindow+Fade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSWindow+Fade.h"; path = "UliKit/NSWindow+Fade.h"; sourceTree = "<group>"; };
-		500ACAD412FC50D000366338 /* NSWindow+Fade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSWindow+Fade.m"; path = "UliKit/NSWindow+Fade.m"; sourceTree = "<group>"; };
 		501225B20FBC1C0B001C50D3 /* KNToolBarExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KNToolBarExtensions.h; sourceTree = "<group>"; };
 		501225B30FBC1C0B001C50D3 /* KNToolBarExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KNToolBarExtensions.m; sourceTree = "<group>"; };
 		50354FFA0FD833A900101941 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/KNAppGuideHUDPresenterStrings.strings; sourceTree = "<group>"; };
@@ -255,8 +251,6 @@
 			children = (
 				501225B20FBC1C0B001C50D3 /* KNToolBarExtensions.h */,
 				501225B30FBC1C0B001C50D3 /* KNToolBarExtensions.m */,
-				500ACAD312FC50D000366338 /* NSWindow+Fade.h */,
-				500ACAD412FC50D000366338 /* NSWindow+Fade.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -380,7 +374,6 @@
 				50D633560FC1ACB1000C83AD /* KNAppGuideResolver.h in Headers */,
 				50D633C50FC1AEE6000C83AD /* KNAppGuideDelegate.h in Headers */,
 				506605390FC57BBC00BE6BCE /* KNAppGuideClassicMenuItemHighlight.h in Headers */,
-				500ACAD512FC50D000366338 /* NSWindow+Fade.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,7 +491,6 @@
 				5074459C0FBC4B6D005C801A /* KNAppGuidePerformSelectorAction.m in Sources */,
 				507446050FBC5157005C801A /* KNAppGuideEnterDateAction.m in Sources */,
 				506605380FC57BB900BE6BCE /* KNAppGuideClassicMenuItemHighlight.m in Sources */,
-				500ACAD612FC50D000366338 /* NSWindow+Fade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

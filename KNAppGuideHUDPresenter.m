@@ -9,7 +9,6 @@
 #import "KNAppGuideHUDPresenter.h"
 #import "KNAppGuideStep.h"
 #import "KNAppGuideClassicHighlight.h"
-#import "NSWindow+Fade.h"
 #import "KNAppGuideDelegate.h"
 #import "KNAppGuide.h"
 #import <WebKit/WebKit.h>
@@ -50,6 +49,7 @@
 	IBOutlet NSView *stepExplanationWebViewContainer;
 	KNAppGuideResizingWebView *stepExplanationWebView;	// In 10.11 and earlier, WKWebView can not be created using initWithCoder (i.e. from a XIB).
 	WKWebViewConfiguration *stepExplanationWebViewConfiguration;
+	BOOL shouldShowWindowWhenLaidOut;
 }
 
 @end
@@ -96,15 +96,17 @@
 	
 	if (currentControlHighlight) {
 		
-		NSDisableScreenUpdates();
-		
-		[currentControlHighlight fadeOutWithDuration:0.25];
+		NSWindow*	wd = [currentControlHighlight retain];
+		[wd setAlphaValue: 1.0];
+		[NSAnimationContext beginGrouping];
+		[[NSAnimationContext currentContext] setDuration: 0.25];
+		[[wd animator] setAlphaValue: 0.f];
+		[NSAnimationContext currentContext].completionHandler = ^(){ [wd orderOut: nil]; [wd release]; };
+		[NSAnimationContext endGrouping];
 		
 		[[currentControlHighlight parentWindow] removeChildWindow:currentControlHighlight];
 		[currentControlHighlight release];
 		currentControlHighlight = nil;
-		
-		NSEnableScreenUpdates();
 	}
 	
 	
@@ -126,11 +128,7 @@
 		[[self delegate] presenter:self willBeginPresentingGuide:[self guide]];
 	}
 	
-	[[self window] fadeInWithDuration:0.25];
-	
-	if ([[self delegate] respondsToSelector:@selector(presenter:didBeginPresentingGuide:)]) {
-		[[self delegate] presenter:self didBeginPresentingGuide:[self guide]];
-	}
+	shouldShowWindowWhenLaidOut = YES;
 }
 
 -(void)closePresentation {
@@ -145,7 +143,13 @@
 	[nextButton setTarget:nil];
 	[nextButton setAction:nil];
 	
-	[[self window] fadeOutWithDuration:0.25];
+	NSWindow *wd = [self.window retain];
+	[wd setAlphaValue: 1.0];
+	[NSAnimationContext beginGrouping];
+	[[NSAnimationContext currentContext] setDuration: 0.25];
+	[[wd animator] setAlphaValue: 0.0];
+	[NSAnimationContext currentContext].completionHandler = ^(){ [wd orderOut: self]; [wd release]; };
+	[NSAnimationContext endGrouping];
 	
 	if ([[self delegate] respondsToSelector:@selector(presenter:didFinishPresentingGuide:completed:)]) {
 		[[self delegate] presenter:self didFinishPresentingGuide:[self guide] completed:([[self guide] currentStep] == [[[self guide] steps] lastObject])];
@@ -210,6 +214,22 @@
 	((KNAppGuideResizingWebView*)message.webView).intrinsicContentSize = frame.size;
 	[((KNAppGuideResizingWebView*)message.webView) setNeedsLayout: YES];
 	[((KNAppGuideResizingWebView*)message.webView).window layoutIfNeeded];
+	
+	if( shouldShowWindowWhenLaidOut )
+	{
+		[self.window setAlphaValue: 0.0];
+		[self.window makeKeyAndOrderFront: self];
+		[NSAnimationContext beginGrouping];
+		[[NSAnimationContext currentContext] setDuration: 0.25];
+		[[self.window animator] setAlphaValue: 1.0];
+		[NSAnimationContext currentContext].completionHandler = ^(){
+			if ([[self delegate] respondsToSelector:@selector(presenter:didBeginPresentingGuide:)]) {
+				[[self delegate] presenter:self didBeginPresentingGuide:[self guide]];
+			}
+		};
+		[NSAnimationContext endGrouping];
+		shouldShowWindowWhenLaidOut = NO;
+	}
 }
 
 
@@ -321,15 +341,17 @@
 		
 		if (currentControlHighlight) {
 			
-			NSDisableScreenUpdates();
-			
-			[currentControlHighlight fadeOutWithDuration:0.25];
+			NSWindow *wd = [currentControlHighlight retain];
+			[wd setAlphaValue: 1.0];
+			[NSAnimationContext beginGrouping];
+			[[NSAnimationContext currentContext] setDuration: 0.25];
+			[[wd animator] setAlphaValue: 0.0];
+			[NSAnimationContext currentContext].completionHandler = ^(){ [wd orderOut: self]; [wd release]; };
+			[NSAnimationContext endGrouping];
 			
 			[[currentControlHighlight parentWindow] removeChildWindow:currentControlHighlight];
 			[currentControlHighlight release];
 			currentControlHighlight = nil;
-			
-			NSEnableScreenUpdates();
 		}
 	}	
 }
