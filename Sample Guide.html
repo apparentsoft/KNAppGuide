@@ -3,7 +3,7 @@
 <html xmlns:appguide="http://ikennd.ac/KNAppGuide/">
 	<head>
 		<title>Sample HTML Guide</title>
-		<appguide:set name="objectClass" value="KNAppGuide" />
+		<appguide:set objectClass="KNAppGuide" />
 		<style>
 		body {
 			background-color: white;
@@ -38,11 +38,13 @@
 		<p>Hopefully you noticed the red circle highlighting the “Your Name” field. This is a view highlight, and currently supports views and toolbar items.</p>
 
 		<p>Clicking the “Show Me” button will automatically fill in the field with some sample text. As this step isn't mandatory to whatever we're doing, clicking the → button will move to the next step without filling in the sample text.</p>
-		<appguide:set name="highlightedItem" value="nameField" shouldBeResolved="YES" />
+		<appguide:set highlightedItem="nameField" />
+		<appguide:set highlightedItemShouldBeResolved="YES" />
 		<appguide:action>
-			<appguide:set name="objectClass" value="KNAppGuideEnterTextAction" />
-			<appguide:set name="defaultText" value="Some Sample Text" />
-			<appguide:set name="textField" value="nameField" shouldBeResolved="YES" />
+			<appguide:set objectClass="KNAppGuideEnterTextAction" />
+			<appguide:set defaultText="Some Sample Text" />
+			<appguide:set textField="nameField" />
+			<appguide:set textFieldShouldBeResolved="YES">
 		</appguide:action>
 		</section>
 		
@@ -50,11 +52,13 @@
 		<p>Here we're just highlighting a toolbar item for the sake of it. However, this is a good time to point out that wherever possible, you should have your custom actions be able to recognise when they've been performed by the user in your UI. That way, the guide will be able to progress without the user having to return to this window to click the → button each time.</p>
 
 		<p>Nearly all of the built-in actions support this. Click the toolbar item to see this functionality in action.</p>
-		<appguide:set name="completionRequiredForNextStep" value="NO" />
-		<appguide:set name="highlightedItem" value="toolbarItem" shouldBeResolved="YES" />
+		<appguide:set completionRequiredForNextStep="NO" />
+		<appguide:set highlightedItem="toolbarItem" />
+		<appguide:set highlightedItemShouldBeResolved="YES" />
 		<appguide:action>
-			<appguide:set name="objectClass" value="KNAppGuideClickButtonAction" />
-			<appguide:set name="button" value="toolbarItem" shouldBeResolved="YES" />
+			<appguide:set objectClass="KNAppGuideClickButtonAction" />
+			<appguide:set button="toolbarItem" />
+			<appguide:set buttonShouldBeResolved="YES" />
 		</appguide:action>
 		</section>
 		
@@ -62,12 +66,14 @@
 		<p>This action is mandatory. If you enter a date into the highlighted picker, the guide will move on to the next step automatically. However, if you don't, a sample value will be entered for you when you click the → button.</p>
 
 		<p>Note: If you changed the date in this picker while the guide was on another step, the sample value won't be entered and the “Show Me” button will be dimmed so the guide doesn't replace the user's real data with our fake data.</p>
-		<appguide:set name="completionRequiredForNextStep" value="YES" />
-		<appguide:set name="highlightedItem" value="datePicker" shouldBeResolved="YES" />
+		<appguide:set completionRequiredForNextStep="YES" />
+		<appguide:set highlightedItem="datePicker" />
+		<appguide:set highlightedItemShouldBeResolved="YES" />
 		<appguide:action>
-			<appguide:set name="objectClass" value="KNAppGuideEnterDateAction" />
-			<appguide:set name="datePicker" value="datePicker" shouldBeResolved="YES" />
-			<appguide:set name="defaultDate" value="14 May 2009 17:46:52" />
+			<appguide:set objectClass="KNAppGuideEnterDateAction" />
+			<appguide:set datePicker="datePicker"/>
+			<appguide:set datePickerShouldBeResolved="YES" />
+			<appguide:set defaultDate="14 May 2009 17:46:52" />
 		</appguide:action>
 		</section>
 		

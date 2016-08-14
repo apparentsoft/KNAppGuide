@@ -89,21 +89,17 @@
 
 +(void)	addTagsFromElements: (NSArray<NSXMLElement*>*)setterNodes toGuideDictionary: (NSMutableDictionary*)guideDict
 {
-	for( NSXMLElement* currSetterElem in setterNodes )
+	for( NSXMLElement *currSetterElem in setterNodes )
 	{
-		NSXMLNode*	nameAttr = [currSetterElem attributeForName: @"name"];
-		NSString*	name = nameAttr.stringValue;
-		NSXMLNode*	valueAttr = [currSetterElem attributeForName: @"value"];
-		id			value = valueAttr.stringValue;
-		NSXMLNode*	shouldBeResolvedAttr = [currSetterElem attributeForName: @"shouldBeResolved"];
-		NSString*	shouldBeResolved = shouldBeResolvedAttr.stringValue;
-		if ([name caseInsensitiveCompare: @"completionRequiredForNextStep"] == NSOrderedSame) {
-			value = [NSNumber numberWithBool: [value caseInsensitiveCompare: @"YES"] == NSOrderedSame];
-		}
-		
-		[guideDict setObject: value forKey: name];
-		if( shouldBeResolved != nil ) {
-			[guideDict setObject: [NSNumber numberWithBool: [shouldBeResolved caseInsensitiveCompare: @"YES"] == NSOrderedSame] forKey: [name stringByAppendingString: @"ShouldBeResolved"]];
+		for( NSXMLNode *theAttr in currSetterElem.attributes )
+		{
+			NSString *name = theAttr.name;
+			id value = theAttr.stringValue;
+			BOOL isYesBool = [value caseInsensitiveCompare: @"YES"] == NSOrderedSame;
+			if( isYesBool || [value caseInsensitiveCompare: @"NO"] == NSOrderedSame ) {
+				value = [NSNumber numberWithBool: isYesBool];
+			}
+			[guideDict setObject: value forKey: name];
 		}
 	}
 }
