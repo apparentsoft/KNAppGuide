@@ -98,13 +98,14 @@
 													highlightedItem:datePicker];
 	[step5 setCompletionRequiredForNextStep:YES];
 	
-	id <KNAppGuideStep> step6 = [KNAppGuideStep stepWithExplanation:@"KNAppGuide uses a plist file to store guide data. At the moment there's no guide editor, "
-																	@"but the file structure is fairly simple.\n\n"
+	id <KNAppGuideStep> step6 = [KNAppGuideStep stepWithExplanation:@"<section>KNAppGuide uses a plist file to store guide data. At the moment there's no guide editor, "
+																	@"but the file structure is fairly simple.<br /><br />"
 																	@"If you use custom classes in your guide, you can store the class name "	
 																	@"in the file and the loader will to the right thing. Most of the properties stored in the "
-																	@"file will be set by KVC, so your classes can have arbitrary properties where needed.\n\nContinued..."
+																	@"file will be set by KVC, so your classes can have arbitrary properties where needed.<br /><br /><i>Continued...</i></section>"
 															 action:nil
 													highlightedItem:nil];
+	step6.explanationIsHTML = YES;
 	
 	id <KNAppGuideStep> step7 = [KNAppGuideStep stepWithExplanation:@"To provide a way to link your guide files to your application, you need to "
 																	@"supply a resolver when loading your file. When the guide loader encounters a key that also has "
